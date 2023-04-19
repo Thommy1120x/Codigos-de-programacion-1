@@ -11,7 +11,7 @@ switch (selec){
     case 1:
     do { 
     printf ("Llamar ascensor al piso\n");
-    scanf("%i",& piso);
+    scanf("%d",& piso);
     if (piso < 0 || piso > 9){
         printf ("El edificio tiene desde el piso 0 hasta el piso 9\n");
     }
@@ -33,7 +33,7 @@ switch (selec){
     break;
     case 2:
     printf ("A que piso desea ir\n");
-    scanf ("%i",& piso2);
+    scanf ("%d",& piso2);
     printf ("El ascensor esta en el piso %i\n", ascensor);
     if (piso2 > ascensor) {
         do {
