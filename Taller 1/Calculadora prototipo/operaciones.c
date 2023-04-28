@@ -19,8 +19,8 @@ float Dividir (float divisor , float dividendo){
     float div;
     if (dividendo>0) {
         div = divisor / dividendo;
-        printf ("La division de los numeros es %.2f",div);
+        printf ("La division de los numeros es %.2f\n",div);
     } else {
-        printf ("La division para 0 no existe");
+        printf ("La division para 0 no existe\n");
     }
 }

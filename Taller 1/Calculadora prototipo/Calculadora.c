@@ -26,7 +26,7 @@ int num1, num2, menu;
                 Dividir (num1,num2);
             break;
             case 5:
-                printf ("Usted a salido de la calculadora");
+                printf ("Usted a salido de la calculadora\n");
             break;
         }    
     }
