@@ -22,7 +22,7 @@ void operaciontransporte (int ruta, int distancia){
  scanf ("%d",&ruta);
  printf ("Ingrese la distancia en kilometros");
  scanf ("%d",& distancia);
- }
+ } return distancia;
 
 }
 
@@ -30,7 +30,8 @@ void precioruta (int precio){
     int urbana;
     int interurbana;
     int internacional;
-    urbana=0.10
+    operaciontransporte ;
+    urbana=0.10;
     interurbana=0.15;
     internacional=0.20;
 
@@ -61,10 +62,10 @@ int contra, contra1, contra2, contra3, i, i1, i2, i3,opcion1,ruta , distancia;
     i2 = strcmp (ver, nombre2);
     i3 = strcmp (ver, nombre3);
     if (i1==0 && contra==contra1 || i2==0 && contra==contra2 || i3==0 && contra== contra3){
-    } else {
         printf ("Bienvenido\n");
-    }
+    } else { 
         printf ("Datos ingresados incorrectos\n");
+        }
     menu (opcion1);
     operaciontransporte (ruta, distancia);
 
