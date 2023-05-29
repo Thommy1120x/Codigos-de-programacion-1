@@ -6,8 +6,9 @@ int main (void)
     int matrizA[n][m];
     int matrizB[n][m];
     int matrizC[n][m];
+    int traspuesta [n][m];
+    //matriz A
     printf ("Matriz A\n");
-
     for (int i=0; i<n; i++)
     {
         for (int j=0; j<m; j++)
@@ -17,7 +18,7 @@ int main (void)
         }
     }
 
-
+    //Matriz B
     printf("Matriz B\n");
         for (int i=0; i<n; i++)
     {
@@ -28,6 +29,7 @@ int main (void)
         }
     }
 
+    //Suma de matrices
     for (int i=0; i<n; i++)
     {
         for (int j=0; j<m; j++)
@@ -36,7 +38,7 @@ int main (void)
         }
     }
 
-
+    
     printf ("Matriz suma\n");
         for (int i=0; i<n; i++)
     {
@@ -47,12 +49,12 @@ int main (void)
         printf("\n");
     }
 
-    
+    //traspuesta de matriz A
         for (int i=0; i<n; i++)
     {
         for (int j=0; j<m; j++)
         {
-            matrizA[n][m]=matrizA[m][n];
+            traspuesta[i][j]=matrizA[j][i];
         }
     }
 
@@ -61,7 +63,7 @@ int main (void)
     {
         for (int j=0; j<m; j++)
         {
-            printf (" %d ", matrizA[i][j]);
+            printf (" %d ",traspuesta[i][j]);
         }
         printf("\n");
     }
