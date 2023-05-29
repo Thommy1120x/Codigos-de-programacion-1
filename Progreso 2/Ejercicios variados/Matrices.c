@@ -7,6 +7,7 @@ int main (void)
     int matrizB[n][m];
     int matrizC[n][m];
     int traspuesta [n][m];
+    int escalar;
     //matriz A
     printf ("Matriz A\n");
     for (int i=0; i<n; i++)
@@ -20,7 +21,7 @@ int main (void)
 
     //Matriz B
     printf("Matriz B\n");
-        for (int i=0; i<n; i++)
+    for (int i=0; i<n; i++)
     {
         for (int j=0; j<m; j++)
         {
@@ -40,7 +41,7 @@ int main (void)
 
     
     printf ("Matriz suma\n");
-        for (int i=0; i<n; i++)
+    for (int i=0; i<n; i++)
     {
         for (int j=0; j<m; j++)
         {
@@ -50,7 +51,7 @@ int main (void)
     }
 
     //traspuesta de matriz A
-        for (int i=0; i<n; i++)
+    for (int i=0; i<n; i++)
     {
         for (int j=0; j<m; j++)
         {
@@ -67,4 +68,26 @@ int main (void)
         }
         printf("\n");
     }
+
+    //Multiplicar por un escalar
+    printf ("Ingrese un valor escalar\n");
+    scanf ("%d",&escalar);
+    for (int i=0; i<n; i++)
+    {
+        for (int j=0; j<m; j++)
+        {
+            matrizA[i][j]=matrizA[i][j]*escalar;
+        }
+    }
+
+    for (int i=0; i<n; i++)
+    {
+        for (int j=0; j<m; j++)
+        {
+            printf(" %d ", matrizA[i][j]);
+        }
+        printf ("\n");
+    }
+
+
 }
