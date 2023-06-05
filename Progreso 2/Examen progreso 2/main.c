@@ -7,7 +7,8 @@ void juegoNuevo() {
     while (1) {
         printf("\n--- Menu principal ---\n");
         printf("1. Jugar al laberinto\n");
-        printf("2. Salir\n");
+        printf("2. creditos\n");
+        printf("3.Salir\n");
         printf("Ingrese su opcion: ");
         scanf(" %c", &opcion);
 
