@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+#include "maze.h"
 //imprimir laberinto 
     #define FILAS 5
     #define COLUMNAS 5
@@ -10,7 +10,6 @@
         { 0 , 1 , 0 , 1 , 0 },
         { 1 , 0 , 0 , 1 , 0 }
     };
-    
 
 void imprimirLaberinto(int laberinto[FILAS][COLUMNAS]) {
     for (int i = 0; i < FILAS; i++) {
@@ -30,16 +29,16 @@ int esMovimientoValido(int laberinto[FILAS][COLUMNAS], int fila, int columna, ch
     int nuevaColumna = columna;
 
     switch (direccion) {
-        case 'W':  
+        case 'W':  // Arriba
             nuevaFila--;
             break;
-        case 'S': 
+        case 'S':  // Abajo
             nuevaFila++;
             break;
-        case 'A':  
+        case 'A':  // Izquierda
             nuevaColumna--;
             break;
-        case 'D':
+        case 'D':  // Derecha
             nuevaColumna++;
             break;
     }
@@ -53,4 +52,8 @@ int esMovimientoValido(int laberinto[FILAS][COLUMNAS], int fila, int columna, ch
     } else {
         return 0;  // Movimiento fuera de los límites del laberinto
     }
+}
+
+void marcarMovimiento(int laberinto[FILAS][COLUMNAS], int fila, int columna) {
+    laberinto[fila][columna] = 2;  // Marcar el movimiento en el laberinto
 }
