@@ -25,29 +25,28 @@ void imprimirLaberinto(int laberinto[FILAS][COLUMNAS]) {
 }
 
 int MovimientoValido(int laberinto[FILAS][COLUMNAS], int fila, int columna, char direccion) {
-    int nuevaFila = fila;
-    int nuevaColumna = columna;
+    
 
     switch (direccion) {
         case 'W':  // Arriba
-            nuevaFila--;
+            fila=fila-1;
             break;
         case 'S':  // Abajo
-            nuevaFila++;
+            fila=fila+1;
             break;
         case 'A':  // Izquierda
-            nuevaColumna--;
+            columna=columna-1;
             break;
         case 'D':  // Derecha
-            nuevaColumna++;
+            columna=columna+1;
             break;
     }
 
-    if (nuevaFila >= 0 && nuevaFila < FILAS && nuevaColumna >= 0 && nuevaColumna < COLUMNAS) {
-        if (laberinto[nuevaFila][nuevaColumna] == 0) {
+    if (fila >= 0 && fila < FILAS && columna >= 0 && columna < COLUMNAS) {
+        if (laberinto[fila][columna] == 0) {
             return 1;  // Movimiento válido
         } else {
-            return -1;  // Hay una pared
+            return 0;  // Hay una pared
         }
     } else {
         return 0;  // Movimiento fuera de los límites del laberinto

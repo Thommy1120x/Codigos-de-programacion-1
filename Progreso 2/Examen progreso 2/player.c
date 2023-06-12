@@ -2,19 +2,19 @@
 #include "maze.h"
 #include "player.h"
 
-void moverJugador(int laberinto[FILAS][COLUMNAS], int* fila, int* columna, char direccion) {
+void moverJugador(int laberinto[FILAS][COLUMNAS], int fila, int columna, char direccion) {
     switch (direccion) {
         case 'W':  // Arriba
-            (*fila)--;
+            (fila)--;
             break;
         case 'S':  // Abajo
-            (*fila)++;
+            (fila)++;
             break;
         case 'A':  // Izquierda
-            (*columna)--;
+            (columna)--;
             break;
         case 'D':  // Derecha
-            (*columna)++;
+            (columna)++;
             break;
     }
 }
