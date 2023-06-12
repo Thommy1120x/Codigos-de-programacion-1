@@ -21,20 +21,18 @@ void moverJugador(int laberinto[FILAS][COLUMNAS], int* fila, int* columna, char 
 
 int verificarVictoria(int laberinto[FILAS][COLUMNAS], int fila, int columna) {
     if (fila == FILAS - 1 && columna == COLUMNAS - 1) {
-        return 1;  // Victoria
-    } else {
-        return 0;  // No se ha llegado a la salida
+        return 1;  // Llegó a la esquina inferior derecha
     }
+    return 0;
 }
 
 void jugarLaberinto() {
-    int laberinto[FILAS][COLUMNAS] ={ 
+    int laberinto[FILAS][COLUMNAS] = {
         { 0 , 1 , 0 , 0 , 0 }, 
         { 0 , 1 , 1 , 1 , 0 },
         { 0 , 0 , 0 , 0 , 0 },
         { 0 , 1 , 0 , 1 , 0 },
         { 1 , 0 , 0 , 1 , 0 }
-    
     };
 
     int fila = 0;
@@ -60,6 +58,7 @@ void jugarLaberinto() {
 
         if (validacion == 1) {
             moverJugador(laberinto, &fila, &columna, movimiento);
+            marcarMovimiento(laberinto, fila, columna);
             movimientos++;
         } else if (validacion == -1) {
             printf("Movimiento inválido. Hay una pared.\n");
