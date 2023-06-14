@@ -1,8 +1,6 @@
-#define FILAS 5
-#define COLUMNAS 5
-
-void moverJugador(int laberinto[FILAS][COLUMNAS], int fila, int columna, char direccion);
-int verificarVictoria(int laberinto[FILAS][COLUMNAS], int fila, int columna);
-void jugarLaberinto();
-
-
+void inicio();
+int ganar(int x, int y);
+int movimiento_jugador(char movement);
+void jugador();
+void Movimientos_total();
+void verificar_movimiento();

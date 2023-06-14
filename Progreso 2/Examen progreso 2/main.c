@@ -1,29 +1,59 @@
 #include <stdio.h>
 #include "player.h"
-
-void juegoNuevo() {
-    jugarLaberinto();
+int menu(){
+    int option;
+    printf("Bienvenido al juego del laberinto!\n");
+    printf("1. Jugar\n");
+    printf("2. Creditos\n");
+    printf("3. Salir\n");
+    scanf("%d", &option);
+    return option;
 }
 
-int main() {
-    int opcion;
-    printf("\n--- Menu principal ---\n");
-        printf("1. Jugar al laberinto\n");
-        printf("2. creditos\n");
-        printf("3.Salir\n");
-        printf("Ingrese su opcion: ");
-        scanf(" %c", &opcion);
-
-        switch (opcion) {
-            case '1':
-                juegoNuevo();
-                break;
-            case '2':
-                printf ("Thommy Calderon\nID Banner:A00108943\n");
-                break;
-            case 3:
-                printf ("Se acabo el juego");
-            default:
-                printf("Opcion invalida. Por favor, seleccione una opcion valida.\n");
+int juegoNuevo(){
+    int win = 0;
+    inicio();
+    char movement;    
+    jugador();
+    do
+    {
+        printf("Ingrese su movimiento: ");
+        scanf(" %c", &movement);
+        win = movimiento_jugador(movement);    
+        jugador();    
+        Movimientos_total();
+        if(win){
+            printf("Felicidades, has ganado!\n");
+            verificar_movimiento();
         }
+    } while (!win);
+    
+}
+
+int main(void)
+{
+    int option;
+    do
+    {
+        option = menu();
+        switch (option)
+        {
+            case 1:
+            printf("Bienvenido al Laberinto\n");
+            juegoNuevo();
+            break;
+            case 2:
+            printf("Créditos\n");
+            printf("Realizado por: \n");
+            printf("Nicolás Rojas\n");
+            break;
+            case 3:
+            printf("Salir\n");
+            break;
+            default:
+            printf("Opcion invalida\n");
+        } 
+    } while (option != 3);
+        
+    return 0;
 }

@@ -1,85 +1,76 @@
-#include <stdio.h>
 #include "maze.h"
-#include "player.h"
+#include <stdio.h>
 
-void moverJugador(int laberinto[FILAS][COLUMNAS], int fila, int columna, char direccion) {
-    switch (direccion) {
-        case 'W':  // Arriba
-            (fila)--;
-            break;
-        case 'S':  // Abajo
-            (fila)++;
-            break;
-        case 'A':  // Izquierda
-            (columna)--;
-            break;
-        case 'D':  // Derecha
-            (columna)++;
-            break;
+int x;
+int y;
+int numMovimientos; 
+
+void inicio(){
+    x = 0;
+    y = 0;
+    numMovimientos = 0;
+}
+
+int ganar(int x, int y){
+    if(x == 4 && y == 4){        
+        return 1;
+    }
+    else{
+        return 0;
     }
 }
 
-int verificarVictoria(int laberinto[FILAS][COLUMNAS], int fila, int columna) {
-    if (fila == FILAS - 1 && columna == COLUMNAS - 1) {
-        return 1;  // Llegó a la esquina inferior derecha
+int movimiento_jugador(char movement){
+    
+    switch (movement)
+    {
+        case 'w':
+        if(valida_movimiento(x, y - 1)){
+            numMovimientos++;
+            y--;
+        }
+        break;
+        case 's':
+        if(valida_movimiento(x, y + 1)){
+            numMovimientos++;
+            y++;
+        }
+        break;
+        case 'a':
+        if(valida_movimiento(x - 1, y)){
+            numMovimientos++;
+            x--;
+        }
+        break;
+        case 'd':
+        if(valida_movimiento(x + 1, y)){
+            numMovimientos++;
+            x++;
+        }
+        default:
+            printf("Movimiento invalido\n");
+        break;
     }
-    return 0;
+  
+    return ganar(x, y);
 }
 
-void jugarLaberinto() {
-    int laberinto[FILAS][COLUMNAS] = {
-        { 0 , 1 , 0 , 0 , 0 }, 
-        { 0 , 1 , 1 , 1 , 0 },
-        { 0 , 0 , 0 , 0 , 0 },
-        { 0 , 1 , 0 , 1 , 0 },
-        { 1 , 0 , 0 , 1 , 0 }
-    };
+void jugador(){
+    laberinto(x, y);   
+}
 
-    int fila = 0;
-    int columna = 0;
-    int movimientos = 0;
+void Movimientos_total(){
+    printf("Movimientos: %d\n", numMovimientos);
+}
 
-    char movimiento;
-
-    printf("¡Bienvenido al laberinto!\n");
-    printf("Puedes moverte usando las teclas WASD (W: arriba, S: abajo, A: izquierda, D: derecha)\n");
-
-    while (1) {
-        printf("\n");
-        imprimirLaberinto(laberinto);
-
-        printf("Posición del jugador: (%d, %d)\n", fila, columna);
-        printf("Movimientos realizados: %d\n", movimientos);
-
-        printf("Ingrese su movimiento: ");
-        scanf(" %c", &movimiento);
-
-        int validacion = esMovimientoValido(laberinto, fila, columna, movimiento);
-
-        if (validacion == 1) {
-            moverJugador(laberinto, &fila, &columna, movimiento);
-            marcarMovimiento(laberinto, fila, columna);
-            movimientos++;
-        } else if (validacion == -1) {
-            printf("Movimiento inválido. Hay una pared.\n");
-        } else {
-            printf("Movimiento inválido. Fuera de los límites del laberinto.\n");
-        }
-
-        int victoria = verificarVictoria(laberinto, fila, columna);
-
-        if (victoria) {
-            printf("\n¡Ganaste!\n");
-
-            if (movimientos <= 8) {
-                printf("Eres un Pro!\n");
-            } else if (movimientos <= 15) {
-                printf("Eres novato\n");
-            } else {
-                printf("Eres un noob!\n");
-            }
-
-            break;
-        }
+void verificar_movimiento(){
+    if(numMovimientos <= 8){
+        printf("Eres un pro!\n");
+    }
+    else if(numMovimientos <= 15){
+        printf("Eres un novato!\n");
+    }
+    else{
+        printf("Eres un noob!\n");
     }
 }
