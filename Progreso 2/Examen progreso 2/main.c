@@ -45,7 +45,8 @@ int main(void)
             case 2:
             printf("Créditos\n");
             printf("Realizado por: \n");
-            printf("Nicolás Rojas\n");
+            printf("Thommy Calderon\n");
+            printf("ID Banner: A00108943\n");
             break;
             case 3:
             printf("Salir\n");
