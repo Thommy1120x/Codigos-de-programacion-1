@@ -1,6 +1,2 @@
-#define FILAS 5
-#define COLUMNAS 5
-
-void imprimirLaberinto(int laberinto[FILAS][COLUMNAS]);
-int MovimientoValido(int laberinto[FILAS][COLUMNAS], int fila, int columna, char direccion);
-void marcarMovimiento(int laberinto[FILAS][COLUMNAS], int fila, int columna);
+void laberinto(int x, int y);
+int valida_movimiento(int x, int y);
