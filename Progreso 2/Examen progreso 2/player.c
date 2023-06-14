@@ -3,12 +3,12 @@
 
 int x;
 int y;
-int numMovimientos; 
+int mov; 
 
 void inicio(){
     x = 0;
     y = 0;
-    numMovimientos = 0;
+    mov = 0;
 }
 
 int ganar(int x, int y){
@@ -20,31 +20,31 @@ int ganar(int x, int y){
     }
 }
 
-int movimiento_jugador(char movement){
+int movimiento_jugador(char movimiento){
     
-    switch (movement)
+    switch (movimiento)
     {
         case 'w':
         if(valida_movimiento(x, y - 1)){
-            numMovimientos++;
+            mov++;
             y--;
         }
         break;
         case 's':
         if(valida_movimiento(x, y + 1)){
-            numMovimientos++;
+            mov++;
             y++;
         }
         break;
         case 'a':
         if(valida_movimiento(x - 1, y)){
-            numMovimientos++;
+            mov++;
             x--;
         }
         break;
         case 'd':
         if(valida_movimiento(x + 1, y)){
-            numMovimientos++;
+            mov++;
             x++;
         }
         default:
@@ -60,14 +60,14 @@ void jugador(){
 }
 
 void Movimientos_total(){
-    printf("Movimientos: %d\n", numMovimientos);
+    printf("Movimientos: %d\n", mov);
 }
 
 void verificar_movimiento(){
-    if(numMovimientos <= 8){
+    if(mov <= 8){
         printf("Eres un pro!\n");
     }
-    else if(numMovimientos <= 15){
+    else if(mov <= 15){
         printf("Eres un novato!\n");
     }
     else{

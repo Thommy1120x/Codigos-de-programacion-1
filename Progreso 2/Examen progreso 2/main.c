@@ -1,17 +1,17 @@
 #include <stdio.h>
 #include "player.h"
 int menu(){
-    int option;
+    int opcion;
     printf("Bienvenido al juego del laberinto!\n");
     printf("1. Jugar\n");
     printf("2. Creditos\n");
     printf("3. Salir\n");
-    scanf("%d", &option);
-    return option;
+    scanf("%d", &opcion);
+    return opcion;
 }
 
 int juegoNuevo(){
-    int win = 0;
+    int ganar = 0;
     inicio();
     char movement;    
     jugador();
@@ -19,24 +19,24 @@ int juegoNuevo(){
     {
         printf("Ingrese su movimiento: ");
         scanf(" %c", &movement);
-        win = movimiento_jugador(movement);    
+        ganar = movimiento_jugador(movement);    
         jugador();    
         Movimientos_total();
-        if(win){
+        if(ganar){
             printf("Felicidades, has ganado!\n");
             verificar_movimiento();
         }
-    } while (!win);
+    } while (!ganar);
     
 }
 
 int main(void)
 {
-    int option;
+    int opcion;
     do
     {
-        option = menu();
-        switch (option)
+        opcion = menu();
+        switch (opcion)
         {
             case 1:
             printf("Bienvenido al Laberinto\n");
@@ -53,7 +53,7 @@ int main(void)
             default:
             printf("Opcion invalida\n");
         } 
-    } while (option != 3);
+    } while (opcion != 3);
         
     return 0;
 }
