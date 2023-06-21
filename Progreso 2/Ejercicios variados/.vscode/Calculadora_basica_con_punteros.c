@@ -1,5 +1,5 @@
 #include<stdio.h>
-
+#include"operaciones_con_punteros.h"
 #include"operaciones_con_punteros.c"
 
 int main(){
