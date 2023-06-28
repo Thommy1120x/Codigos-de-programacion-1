@@ -54,11 +54,5 @@ void datos_comparacion(float* comparar1 , float* comparar2, int t) {
 
 }   
 
-void comparar_frase (char* nombre1, char* nombre2 ){
-    if (*nombre1 == *nombre2){
-        printf("La frase es igual");
-    } else {
-        printf("La frase es distinta");
-    }
-}
+
 
